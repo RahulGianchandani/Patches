@@ -1,0 +1,187 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  box-sizing: border-box;
+  padding: 0;
+}
+
+body {
+  font-family: "Jost", Helvetica, Arial, sans-serif;
+}
+
+.theme-blue-color {
+  color: #3385d7;
+}
+
+.theme-dark-blue {
+  color: #1f2e88;
+}
+
+/************ HEADER  ************/
+.header {
+  position: sticky;
+  left: 0;
+  top: 0;
+  z-index: 100;
+  width: 100%;
+}
+
+.header a.active {
+  color: #3385d7 !important;
+}
+
+
+
+
+
+.header ul a {
+  font-size: 14px;
+}
+
+/************ HEADER ENDS  ************/
+
+
+/************ FOOTER  ************/
+footer#footer {
+  /* background-image: url(./images/dentist4-footer-bg.webp); */
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-size: cover;
+  background-color: #000000;
+}
+
+footer #footer-top {
+  padding: 100px 0px;
+}
+
+footer #footer-top section h4 {
+  font-size: 30px;
+  line-height: 40px;
+  font-weight: 600;
+  letter-spacing: 0px;
+  color: white;
+
+}
+
+footer #footer-top section h5 {
+  font-size: 20px;
+  line-height: 30px;
+  font-weight: 600;
+  letter-spacing: 0px;
+  color: #3385d7;
+}
+
+footer #footer-top section p {
+  font-size: 18px;
+  color: white;
+
+}
+
+footer #footer-top section a {
+  font-size: 18px;
+  color: #3385d7;
+  text-decoration: none;
+  font-weight: 600;
+  display: block;
+}
+
+footer #footer-top section a:hover {
+  font-size: 18px;
+  color: white;
+
+}
+
+footer #footer-top section img {
+  width: 9rem;
+  /* filter: brightness(0) invert(1); */
+}
+
+footer #footer-bottom {
+  padding: 22px 0px 22px 0px;
+  font-size: 18px;
+  display: flex;
+  font-weight: bold;
+  color: white;
+  justify-content: center;
+  flex-wrap: wrap;
+  border-top: 1px solid rgba(255, 255, 255, .1);
+  text-align: center;
+}
+
+footer .whatsappICON {
+  position: fixed;
+  font-size: 30px;
+  color: white;
+  background-color: rgb(22, 240, 14);
+  border-radius: 50%;
+  padding: 5px;
+  bottom: 15px;
+  left: 15px;
+
+}
+
+/************ FOOTER ENDS  ************/
+
+/************ LOGIN PAGE STARTS  ************/
+#registerPage input::-webkit-outer-spin-button, #registerPage input::-webkit-inner-spin-button, #loginPage input::-webkit-outer-spin-button, #loginPage input::-webkit-inner-spin-button, #forgotPass input::-webkit-outer-spin-button, #forgotPass input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+form {
+  box-shadow: 0 45px 65px rgba(0, 0, 0, 0.50), 0 35px 22px rgba(0, 0, 0, 0.16);
+}
+
+#loginPage::before,
+#registerPage::before, #forgotPass::before, #resetPass::before {
+  content: "";
+  background: url(../src/images/master-slider-03.jpg) no-repeat center center/cover;
+  /* background: transparent; */
+  position: absolute;
+  /* top: 70px; */
+  height: 100%;
+  width: 100%;
+  z-index: -99;
+  /* opacity: 0.8; */
+  /* right: 300px; */
+  /* filter: blur(1px) brightness(0.3); */
+}
+
+#dashboard::before {
+  content: "";
+  background: url(../src/images/master-slider-03.jpg) no-repeat center center/cover;
+  /* background: transparent; */
+  position: absolute;
+  /* top: 70px; */
+  height: 100%;
+  width: 100%;
+  z-index: -99;
+  /* opacity: 0.8; */
+  /* right: 300px; */
+  /* filter: blur(1px) brightness(0.3); */
+}
+
+#dashboard .imgBox {
+  box-shadow: 0 0 10px 0 rgba(0,0,0,1) inset
+}
+
+#registerPage label:where([for=fname], [for=password], [for=email])::after, #loginPage label:where([for=password], [for=email])::after, #forgotPass label:where([for=email])::after, #resetPass label:where([for=password], [for=cPass])::after, #dashboard label::after {
+  content: "*";
+  color: rgb(255, 0, 0);
+  margin-left: 2px;
+  font-weight: bolder;
+}
+
+/* media query */
+@media (width < 565px) {
+
+
+  footer #footer-bottom {
+    padding: 22px 10px 22px 10px;
+  }
+
+
+}
