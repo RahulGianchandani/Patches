@@ -28,6 +28,7 @@ export default function App() {
             <Routes>
               <Route path="/login" element={<Login />} />
               <Route path="/" element={<Login />} />
+              <Route path="/Patches" element={<Login />} />
               <Route path="/register" element={<Register />} />
               <Route path="/forgot-pass" element={<ForgotPass />} />
               <Route path="/reset-pass" element={<ResetPass />} />
@@ -38,6 +39,7 @@ export default function App() {
           <Routes>
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/" element={<Dashboard />} />
+            <Route path="/Patches" element={<Dashboard />} />
             <Route path="/all-quotes" element={<AllQuotes />} />
             <Route path="/my-profile" element={<MyProfile />} />
             <Route path="/all-users" element={<AllUsers />} />
