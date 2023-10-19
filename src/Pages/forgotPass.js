@@ -4,6 +4,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 import { Link, useNavigate } from 'react-router-dom'
+import Wrapper from '../Components/Wrapper';
 
 const ForgotPass = () => {
   const navigate = useNavigate();
@@ -49,22 +50,22 @@ const ForgotPass = () => {
       });
   }
   return (
-    <div id='forgotPass' className='relative h-full '>
-      <div className='h-screen'>
-        <div className='flex justify-center align-middle h-full items-center'>
-          <form className='max-w-[400px] p-[50px] bg-[#fcd04b]'>
-            <h3 className='h3 text-center mb-5'>Forgot Password</h3>
+      <div id='forgotPass' className='relative h-full '>
+        <div className='h-screen'>
+          <div className='flex justify-center align-middle h-full items-center'>
+            <form className='max-w-[400px] p-[50px] bg-[#fcd04b]'>
+              <h3 className='h3 text-center mb-5'>Forgot Password</h3>
 
-            <div className="mb-1 ">
-              <label for="email" className="form-label mb-0">Email address</label>
-              <input type="email" name='email' onChange={handleChange} className="form-control rounded-none" id="email" aria-describedby="emailHelp" required />
-            </div>
-            <span className='text-xs text-[#0081e7] font-bold '>Enter your Email to receive password reset link</span>
-            <button type="submit" onClick={(e) => forgetPass(e)} className="mt-3 btn btn-primary rounded-none text-white border-none bg-black w-full py-3  hover:!bg-zinc-700 duration-200">Send Email</button>
-          </form>
+              <div className="mb-1 ">
+                <label for="email" className="form-label mb-0">Email address</label>
+                <input type="email" name='email' onChange={handleChange} className="form-control rounded-none" id="email" aria-describedby="emailHelp" required />
+              </div>
+              <span className='text-xs text-[#0081e7] font-bold '>Enter your Email to receive password reset link</span>
+              <button type="submit" onClick={(e) => forgetPass(e)} className="mt-3 btn btn-primary rounded-none text-white border-none bg-black w-full py-3  hover:!bg-zinc-700 duration-200">Send Email</button>
+            </form>
+          </div>
         </div>
       </div>
-    </div>
   )
 }
 

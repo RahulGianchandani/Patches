@@ -126,7 +126,12 @@ footer .whatsappICON {
 /************ FOOTER ENDS  ************/
 
 /************ LOGIN PAGE STARTS  ************/
-#registerPage input::-webkit-outer-spin-button, #registerPage input::-webkit-inner-spin-button, #loginPage input::-webkit-outer-spin-button, #loginPage input::-webkit-inner-spin-button, #forgotPass input::-webkit-outer-spin-button, #forgotPass input::-webkit-inner-spin-button {
+#registerPage input::-webkit-outer-spin-button,
+#registerPage input::-webkit-inner-spin-button,
+#loginPage input::-webkit-outer-spin-button,
+#loginPage input::-webkit-inner-spin-button,
+#forgotPass input::-webkit-outer-spin-button,
+#forgotPass input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
@@ -136,7 +141,9 @@ form {
 }
 
 #loginPage::before,
-#registerPage::before, #forgotPass::before, #resetPass::before {
+#registerPage::before,
+#forgotPass::before,
+#resetPass::before {
   content: "";
   background: url(../src/images/master-slider-03.jpg) no-repeat center center/cover;
   /* background: transparent; */
@@ -165,10 +172,14 @@ form {
 }
 
 #dashboard .imgBox {
-  box-shadow: 0 0 10px 0 rgba(0,0,0,1) inset
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 1) inset
 }
 
-#registerPage label:where([for=fname], [for=password], [for=email])::after, #loginPage label:where([for=password], [for=email])::after, #forgotPass label:where([for=email])::after, #resetPass label:where([for=password], [for=cPass])::after, #dashboard label::after {
+#registerPage label:where([for=fname], [for=password], [for=email])::after,
+#loginPage label:where([for=password], [for=email])::after,
+#forgotPass label:where([for=email])::after,
+#resetPass label:where([for=password], [for=cPass])::after,
+#dashboard label::after {
   content: "*";
   color: rgb(255, 0, 0);
   margin-left: 2px;
@@ -184,4 +195,93 @@ form {
   }
 
 
+}
+
+@media (min-width: 1600px) {
+  #wrapper {
+    display: grid;
+    grid-template-columns: auto 1fr;
+  }
+}
+
+@media (min-width: 1400px) {
+  #wrapper {
+    display: grid;
+    grid-template-columns: auto 1fr;
+  }
+}
+
+@media (min-width: 1200px) {
+  #wrapper {
+    display: grid;
+    grid-template-columns: auto 1fr;
+  }
+}
+
+@media (min-width: 1100px) {
+  #wrapper {
+    display: grid;
+    grid-template-columns: auto 1fr;
+  }
+}
+
+@media (min-width: 992px) {
+  #wrapper {
+    display: grid;
+    grid-template-columns: auto 1fr;
+  }
+}
+
+@media (min-width: 772px) {
+  #wrapper {
+    display: grid;
+    grid-template-columns: auto 1fr;
+  }
+}
+
+@media (min-width: 768px) {
+  #wrapper {
+    display: grid;
+    grid-template-columns: auto 1fr;
+  }
+}
+
+@media (min-width: 619px) {
+  #wrapper {
+    display: grid;
+    grid-template-columns: auto 1fr;
+  }
+}
+
+@media (min-width: 576px) {
+  #wrapper {
+    display: grid;
+    grid-template-columns: auto 1fr;
+  }
+}
+
+@media (min-width: 992px) {
+  #wrapper {
+    display: grid;
+    grid-template-columns: auto 1fr;
+  }
+}
+
+#wrapper {
+  display: grid;
+  grid-template-columns: auto 1fr;
+}
+#wrapper #sidebar {
+  border-right: 1px solid #e4e4e6;
+  max-width: 240px;
+  min-width: 240px;
+  transition: all .3s;
+}
+
+#wrapper #sidebar #view-channel-li:hover button, #wrapper #sidebar li.active, #wrapper #sidebar li:hover a, #wrapper #sidebar li:hover:not(#view-channel-li) {
+  background-color: #ff9e0d;
+  color: #fff;
+} 
+#wrapper #sidebar li.active .active button {
+  font-weight: 700!important;
 }

@@ -4,6 +4,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Link, useNavigate } from 'react-router-dom'
 import axios from 'axios';
+import Wrapper from '../Components/Wrapper';
 
 const ResetPass = () => {
   const navigate = useNavigate();
@@ -52,25 +53,25 @@ const ResetPass = () => {
       });
   }
   return (
-    <div id='resetPass' className='relative h-full '>
-      <div className='h-screen'>
-        <div className='flex justify-center align-middle h-full items-center'>
-          <form className=' min-w-[400px] p-[50px] bg-[#fcd04b]'>
-            <h3 className='h3 text-center mb-5'>Reset Password</h3>
+      <div id='resetPass' className='relative h-full '>
+        <div className='h-screen'>
+          <div className='flex justify-center align-middle h-full items-center'>
+            <form className=' min-w-[400px] p-[50px] bg-[#fcd04b]'>
+              <h3 className='h3 text-center mb-5'>Reset Password</h3>
 
-            <div className="mb-3 ">
-              <label for="password" className="form-label mb-0">Password</label>
-              <input type="password" name='password' onChange={handleChange} className="form-control rounded-none py-2" id="password" required />
-            </div>
-            <div className="mb-3 ">
-              <label for="cPass" className="form-label mb-0">Confirm Password</label>
-              <input type="password" name='cPass' onChange={handleChange} className="form-control rounded-none py-2" id="cPass" required />
-            </div>
-            <button type="submit" onClick={(e) => resetPass(e)} className="mt-3 btn btn-primary rounded-none text-white border-none bg-black w-full py-3  hover:!bg-zinc-700 duration-200">Reset</button>
-          </form>
+              <div className="mb-3 ">
+                <label for="password" className="form-label mb-0">Password</label>
+                <input type="password" name='password' onChange={handleChange} className="form-control rounded-none py-2" id="password" required />
+              </div>
+              <div className="mb-3 ">
+                <label for="cPass" className="form-label mb-0">Confirm Password</label>
+                <input type="password" name='cPass' onChange={handleChange} className="form-control rounded-none py-2" id="cPass" required />
+              </div>
+              <button type="submit" onClick={(e) => resetPass(e)} className="mt-3 btn btn-primary rounded-none text-white border-none bg-black w-full py-3  hover:!bg-zinc-700 duration-200">Reset</button>
+            </form>
+          </div>
         </div>
       </div>
-    </div>
   )
 }
 

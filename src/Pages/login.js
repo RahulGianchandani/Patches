@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useState } from 'react'
 
+import Wrapper from '../Components/Wrapper';
 
 import { Link, useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify';
@@ -26,6 +27,7 @@ const Login = () => {
         console.log("res", res);
         if (res?.data?.success) {
           localStorage.setItem("token", res?.data?.message?.token)
+          localStorage.setItem("role", res?.data?.message?.role)
           toast.success('Logged in Successfully!', {
             position: "top-right",
             autoClose: 3000,
@@ -36,7 +38,7 @@ const Login = () => {
             progress: undefined,
             theme: "light",
           });
-          navigate("/")
+          window.location.href = '/dashboard'
         }
       })
       .catch(error => {
@@ -54,26 +56,26 @@ const Login = () => {
       });
   }
   return (
-    <div id='loginPage' className='relative h-full '>
-      <div className='h-screen'>
-        <div className='flex justify-center align-middle h-full items-center'>
-          <form className='max-w-[400px] p-[50px] bg-[#fcd04b]'>
-            <h3 className='h3 text-center mb-5'>Sign In</h3>
-            <div className="mb-3 ">
-              <label for="email" className="form-label mb-0">Email address</label>
-              <input type="email" name='email' onChange={handleChange} className="form-control rounded-none py-2" id="email" aria-describedby="emailHelp" required />
-              <div id="emailHelp" className="form-text">We'll never share your email with anyone else.</div>
-            </div>
-            <div className="mb-1 ">
-              <label for="password" className="form-label mb-0">Password</label>
-              <input type="password" name='password' onChange={handleChange} className="form-control rounded-none py-2" id="password" required />
-            </div>
-            <Link to={"/forgot-pass"}><span className='text-xs text-[#0081e7] font-bold hover:!underline'>Forgot Password?</span></Link>
-            <button onClick={(e) => login(e)} type="submit" className=" hover:!bg-zinc-700 duration-200 mt-3 btn btn-primary rounded-none text-white border-none bg-black w-full py-3 hover:bg-zinc-800">Login</button>
-          </form>
+      <div id='loginPage' className='relative h-full '>
+        <div className='h-screen'>
+          <div className='flex justify-center align-middle h-full items-center'>
+            <form className='max-w-[400px] p-[50px] bg-[#fcd04b]'>
+              <h3 className='h3 text-center mb-5'>Sign In</h3>
+              <div className="mb-3 ">
+                <label for="email" className="form-label mb-0">Email address</label>
+                <input type="email" name='email' onChange={handleChange} className="form-control rounded-none py-2" id="email" aria-describedby="emailHelp" required />
+                <div id="emailHelp" className="form-text">We'll never share your email with anyone else.</div>
+              </div>
+              <div className="mb-1 ">
+                <label for="password" className="form-label mb-0">Password</label>
+                <input type="password" name='password' onChange={handleChange} className="form-control rounded-none py-2" id="password" required />
+              </div>
+              <Link to={"/forgot-pass"}><span className='text-xs text-[#0081e7] font-bold hover:!underline'>Forgot Password?</span></Link>
+              <button onClick={(e) => login(e)} type="submit" className=" hover:!bg-zinc-700 duration-200 mt-3 btn btn-primary rounded-none text-white border-none bg-black w-full py-3 hover:bg-zinc-800">Login</button>
+            </form>
+          </div>
         </div>
       </div>
-    </div>
   )
 }
 
