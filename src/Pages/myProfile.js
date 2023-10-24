@@ -35,7 +35,7 @@ const MyProfile = () => {
       {!loading &&
         <div id='allQuotes' className='relative h-full bg-gray-100 '>
           <h2 className='h2 font-bold py-3 px-5 mb-5'>My Profile</h2>
-          <div className='container max-w-[1000px] p-5 shadow-md bg-white'>
+          <div className='container max-w-[1000px] p-5 shadow-md bg-[#fcd04b]'>
             <div className='imgBox flex justify-center mb-5  '>
               <img src="https://avatars.dicebear.com/api/adventurer-neutral/mail%40ashallendesign.co.uk.svg" className='h-24 w-24 rounded-full' />
             </div>

@@ -22,7 +22,7 @@ const Sidebar = () => {
             <ul className="  py-4 mt-2 pl-0  " style={{ backgroundColor: "#fff" }}>
 
                 <h2 id="menu-header" className="font-bold text-lg mb-2 mx-2.5">
-                    {/* My Storefront */}
+                    Admin
                 </h2>
                 <hr className="m-2" />
                 <li
@@ -49,13 +49,24 @@ const Sidebar = () => {
                     </NavLink>
                 </li>
                 <li
-                    className={` transition duration-500 ease-out ${location.pathname === "/my-team" ? "active" : ""
+                    className={` transition duration-500 ease-out ${location.pathname === "/orders" ? "active" : ""
                         }`}
                 >
-                    <NavLink className="transition duration-500 ease-out" to="/my-team">
+                    <NavLink className="transition duration-500 ease-out" to="/orders">
                         <button className="flex items-center  p-3">
                             <FiUserCheck size={20} className="mr-2" />
                             Orders
+                        </button>
+                    </NavLink>
+                </li>
+                <li
+                    className={` transition duration-500 ease-out ${location.pathname === "/complete-orders" ? "active" : ""
+                        }`}
+                >
+                    <NavLink className="transition duration-500 ease-out" to="/complete-orders">
+                        <button className="flex items-center  p-3">
+                            <FiUserCheck size={20} className="mr-2" />
+                            Complete Orders
                         </button>
                     </NavLink>
                 </li>

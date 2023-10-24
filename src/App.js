@@ -15,6 +15,10 @@ import Dashboard from './Pages/dashboard';
 import AllQuotes from './Pages/allQuotes';
 import MyProfile from './Pages/myProfile';
 import AllUsers from './Pages/allUsers';
+import CreateQuote from './Pages/createQuote';
+import CreateOrder from './Pages/createOrder';
+import Orders from './Pages/orders';
+import CompleteOrders from './Pages/completeOrders';
 const token = localStorage.getItem("token");
 const role = localStorage.getItem("role");
 console.log("role", role);
@@ -41,6 +45,10 @@ export default function App() {
             <Route path="/" element={<Dashboard />} />
             <Route path="/Patches" element={<Dashboard />} />
             <Route path="/all-quotes" element={<AllQuotes />} />
+            <Route path="/orders" element={<Orders />} />
+            <Route path="/complete-orders" element={<CompleteOrders />} />
+            <Route path="/create-quote" element={<CreateQuote />} />
+            <Route path="/create-order" element={<CreateOrder />} />
             <Route path="/my-profile" element={<MyProfile />} />
             <Route path="/all-users" element={<AllUsers />} />
           </Routes>

@@ -7,6 +7,7 @@ import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Wrapper from '../Components/Wrapper';
 const token = localStorage.getItem("token");
+const role = localStorage.getItem("role");
 const AllUsers = () => {
 
 
@@ -14,6 +15,11 @@ const AllUsers = () => {
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
+    getAllUsers();
+  }, [])
+
+
+  const getAllUsers = () => {
     axios({
       method: 'POST',
       url: `http://172.16.1.58:9090/v1/admin/getalluser`,
@@ -25,10 +31,35 @@ const AllUsers = () => {
     }).catch((err) => {
       setLoading(false)
     })
+  }
 
-  }, [])
-  const navigate = useNavigate();
+  const deActivateUser = (_id) => {
+    axios({
+      method: 'POST',
+      url: `http://172.16.1.58:9090/v1/${role === "customer" ? "customer/getallusersquotes" : "admin/deactiveUser"}`,
+      headers: { Authorization: `Bearer ${token}` },
+      data: {
+        _id: _id,
+      }
+    }).then(res => {
+      console.log("res", res);
+      setLoading(false)
+      toast.success('User DeActivated Successfully!', {
+        position: "top-right",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+      getAllUsers()
+    }).catch((err) => {
+      setLoading(false)
+    })
 
+  }
 
   return (
     <Wrapper>
@@ -52,7 +83,7 @@ const AllUsers = () => {
                 </tr>
               </thead>
               <tbody>
-                {data?.map((user, ind) => {
+                {data.length > 0 && data?.map((user, ind) => {
                   return (
                     <tr>
                       <th scope="row">{ind + 1}</th>
@@ -64,7 +95,12 @@ const AllUsers = () => {
                       <td>{user?.postalCode}</td>
                       <td>{user?.state}</td>
                       <td>{user?.address}</td>
-                      <td>{user?.is_active ? "active" : "inactive"}</td>
+                      <td>{user?.is_active ?
+                        <button type="button" onClick={() => deActivateUser(user?._id)} className='text-sm border border-black rounded-sm px-2 py-1 bg-red-600 hover:bg-red-700 text-white duration-200' >DeActivate</button>
+                        :
+                        <button type="button" onClick={() => deActivateUser(user?._id)} className='text-sm border border-black rounded-sm px-2 py-1 bg-green-600 hover:bg-green-700 text-white duration-200' >Activate</button>
+                      }
+                      </td>
                     </tr>
                   )
                 })}

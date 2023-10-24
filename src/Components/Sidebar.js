@@ -22,7 +22,7 @@ const Sidebar = () => {
             <ul className="  py-4 mt-2 pl-0  " style={{ backgroundColor: "#fff" }}>
 
                 <h2 id="menu-header" className="font-bold text-lg mb-2 mx-2.5">
-                    Royal Patches
+                    Customer
                 </h2>
                 <hr className="m-2" />
                 <li
@@ -33,6 +33,18 @@ const Sidebar = () => {
                         <button className="flex items-center  p-3">
                             <RiDashboardLine size={20} className="mr-2" />
                             Dashboard
+                        </button>
+                    </NavLink>
+                </li>
+
+                <li
+                    className={` transition duration-500 ease-out ${location.pathname === "/create-quote" ? "active" : ""
+                        }`}
+                >
+                    <NavLink className="transition duration-500 ease-out" to="/create-quote">
+                        <button className="flex items-center  p-3">
+                            <BiHeart size={20} className="mr-2" />
+                            Create Quote
                         </button>
                     </NavLink>
                 </li>
@@ -49,13 +61,35 @@ const Sidebar = () => {
                     </NavLink>
                 </li>
                 <li
-                    className={` transition duration-500 ease-out ${location.pathname === "/my-team" ? "active" : ""
+                    className={` transition duration-500 ease-out ${location.pathname === "/orders" ? "active" : ""
                         }`}
                 >
-                    <NavLink className="transition duration-500 ease-out" to="/my-team">
+                    <NavLink className="transition duration-500 ease-out" to="/orders">
                         <button className="flex items-center  p-3">
                             <FiUserCheck size={20} className="mr-2" />
                             Orders
+                        </button>
+                    </NavLink>
+                </li>
+                <li
+                    className={` transition duration-500 ease-out ${location.pathname === "/complete-orders" ? "active" : ""
+                        }`}
+                >
+                    <NavLink className="transition duration-500 ease-out" to="/complete-orders">
+                        <button className="flex items-center  p-3">
+                            <FiUserCheck size={20} className="mr-2" />
+                            Complete Orders
+                        </button>
+                    </NavLink>
+                </li>
+                <li
+                    className={` transition duration-500 ease-out ${location.pathname === "/create-order" ? "active" : ""
+                        }`}
+                >
+                    <NavLink className="transition duration-500 ease-out" to="/create-order">
+                        <button className="flex items-center  p-3">
+                            <FiUserCheck size={20} className="mr-2" />
+                            Create Order
                         </button>
                     </NavLink>
                 </li>
