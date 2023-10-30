@@ -18,7 +18,7 @@ const ForgotPass = () => {
   };
   const forgetPass = (e) => {
     e.preventDefault()
-    axios.post('http://172.16.1.58:9090/v1/signin/forget', { ...formData })
+    axios.post('http://34.230.138.15:9090/v1/signin/forget', { ...formData })
       .then(res => {
         console.log("res", res);
         if (res?.data?.success) {

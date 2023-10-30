@@ -19,6 +19,7 @@ import CreateQuote from './Pages/createQuote';
 import CreateOrder from './Pages/createOrder';
 import Orders from './Pages/orders';
 import CompleteOrders from './Pages/completeOrders';
+import Invoices from './Pages/invoices';
 const token = localStorage.getItem("token");
 const role = localStorage.getItem("role");
 console.log("role", role);
@@ -51,6 +52,7 @@ export default function App() {
             <Route path="/create-order" element={<CreateOrder />} />
             <Route path="/my-profile" element={<MyProfile />} />
             <Route path="/all-users" element={<AllUsers />} />
+            <Route path="/invoices" element={<Invoices />} />
           </Routes>
       }
 

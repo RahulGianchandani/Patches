@@ -19,16 +19,20 @@ const Orders = () => {
   const [data, setData] = useState("")
   const [id, setID] = useState("")
   const [img, setImg] = useState("")
+  const [userName, setUserName] = useState("")
   const [loading, setLoading] = useState(true)
   useEffect(() => {
     getAllQuotes()
   }, [])
 
-  const getAllQuotes = () => {
+  const getAllQuotes = (userName) => {
     axios({
       method: 'POST',
-      url: `http://172.16.1.58:9090/v1/${role === "customer" ? "customer/getallusersquotes" : "admin/getallquotes"}`,
+      url: `http://34.230.138.15:9090/v1/${role === "customer" ? "customer/getallusersquotes" : "admin/getallquotes"}`,
       headers: { Authorization: `Bearer ${token}` },
+      data: {
+        userName
+      }
     }).then(res => {
       setData(res?.data?.message)
       console.log("res", res);
@@ -42,7 +46,7 @@ const Orders = () => {
   const sendQuote = (_id) => {
     axios({
       method: 'POST',
-      url: `http://172.16.1.58:9090/v1/${role === "customer" ? "customer/getallusersquotes" : "admin/sendtocustomer"}`,
+      url: `http://34.230.138.15:9090/v1/${role === "customer" ? "customer/getallusersquotes" : "admin/sendtocustomer"}`,
       headers: { Authorization: `Bearer ${token}` },
       data: {
         _id: id,
@@ -75,14 +79,25 @@ const Orders = () => {
     setImg(e.target.files[0]);
   }
 
-console.log("img", img);
+  console.log("img", img);
   return (
     <Wrapper>
       {
         !loading &&
         <div id='allQuotes' className='relative h-full bg-gray-100 '>
-          <h2 className='h2 font-bold py-3 px-5 mb-5'>Orders</h2>
+          <h2 className='h2 font-bold py-3 px-5'>Orders</h2>
           <div className='container'>
+            <div className='flex items-center place-items-center mb-5 '>
+              <div className="">
+                <input type="text" value={userName} onChange={(e) => setUserName(e.target.value)} className="form-control w-44" id="userName" aria-describedby="nameHelp" placeholder='Enter User Name' />
+              </div>
+              <button className=' bg-sky-600 rounded-md py-2 ms-4 px-3 text-white' onClick={() => getAllQuotes(userName)}>
+                Search
+              </button>
+              <button className='bg-gray-500 rounded-md py-2 ms-2 px-3 text-white' onClick={() => { setUserName(""); getAllQuotes("") }}>
+                Reset
+              </button>
+            </div>
             <table className="table table-striped table-hover mb-0">
               <thead>
                 <tr>

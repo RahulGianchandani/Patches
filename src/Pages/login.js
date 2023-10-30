@@ -22,7 +22,7 @@ const Login = () => {
   const navigate = useNavigate();
   const login = (e) => {
     e.preventDefault()
-    axios.post('http://172.16.1.58:9090/v1/signin/login', { ...formData })
+    axios.post('http://34.230.138.15:9090/v1/signin/login', { ...formData })
       .then(res => {
         console.log("res", res);
         if (res?.data?.success) {

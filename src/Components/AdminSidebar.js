@@ -71,16 +71,16 @@ const Sidebar = () => {
                     </NavLink>
                 </li>
                 <li
-                    className={` transition duration-500 ease-out ${location.pathname === "/media-manager" ? "active" : ""
+                    className={` transition duration-500 ease-out ${location.pathname === "/invoices" ? "active" : ""
                         }`}
                 >
                     <NavLink
                         className="transition duration-500 ease-out"
-                        to="/media-manager"
+                        to="/invoices"
                     >
                         <button className="flex items-center  p-3">
                             <AiOutlineYoutube size={20} className="mr-2" />
-                            Pay Slips
+                            Invoices
                         </button>
                     </NavLink>
                 </li>

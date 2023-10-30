@@ -48,7 +48,7 @@ const CreateQuote = () => {
     axios({
       method: 'POST',
 
-      url: `http://172.16.1.58:9090/v1/customer/quote`,
+      url: `http://34.230.138.15:9090/v1/customer/quote`,
       headers: {
         // 'Content-Type': 'multipart/form-data',
         Authorization: `Bearer ${token}`

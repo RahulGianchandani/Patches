@@ -33,7 +33,7 @@ const Register = () => {
 
   const register = (e) => {
     e.preventDefault()
-    axios.post('http://172.16.1.58:9090/v1/signup/reg', { ...formData })
+    axios.post('http://34.230.138.15:9090/v1/signup/reg', { ...formData })
       .then(res => {
         console.log("res", res);
         if (res?.data?.success) {

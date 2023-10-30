@@ -12,6 +12,7 @@ const AllUsers = () => {
 
 
   const [data, setData] = useState("")
+  const [email, setEmail] = useState("")
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
@@ -19,11 +20,14 @@ const AllUsers = () => {
   }, [])
 
 
-  const getAllUsers = () => {
+  const getAllUsers = (email) => {
     axios({
       method: 'POST',
-      url: `http://172.16.1.58:9090/v1/admin/getalluser`,
+      url: `http://34.230.138.15:9090/v1/admin/getalluser`,
       headers: { Authorization: `Bearer ${token}` },
+      data: {
+        email
+      }
     }).then(res => {
       setLoading(false)
       setData(res?.data?.message)
@@ -36,7 +40,7 @@ const AllUsers = () => {
   const deActivateUser = (_id) => {
     axios({
       method: 'POST',
-      url: `http://172.16.1.58:9090/v1/${role === "customer" ? "customer/getallusersquotes" : "admin/deactiveUser"}`,
+      url: `http://34.230.138.15:9090/v1/${role === "customer" ? "customer/getallusersquotes" : "admin/deactiveUser"}`,
       headers: { Authorization: `Bearer ${token}` },
       data: {
         _id: _id,
@@ -60,13 +64,41 @@ const AllUsers = () => {
     })
 
   }
+  const exportEmails = () => {
+    axios({
+      method: 'POST',
+      url: `http://34.230.138.15:9090/v1/${role === "customer" ? "customer/getallusersquotes" : "admin/export"}`,
+      headers: { Authorization: `Bearer ${token}` },
+    }).then(res => {
+      console.log("res", res);
+    }).catch((err) => {
+    })
+
+  }
 
   return (
     <Wrapper>
       {!loading &&
         <div id='allQuotes' className='relative h-full bg-gray-100 '>
-          <h2 className='h2 font-bold py-3 px-5 mb-5'>All Users</h2>
+          <h2 className='h2 font-bold py-3 px-5'>All Users</h2>
           <div className='container'>
+            <div className='flex items-center justify-between mb-5 '>
+
+              <div className='flex'>
+                <div className="w-64">
+                  <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} className="form-control" id="email" aria-describedby="emailHelp" placeholder='Enter Email' />
+                </div>
+                <button className=' bg-sky-600 rounded-md py-1.5 ms-4 px-3 text-white' onClick={() => getAllUsers(email)}>
+                  Search
+                </button>
+                <button className='bg-gray-500 rounded-md py-1.5 ms-2 px-3 text-white' onClick={() => { setEmail(""); getAllUsers("") }}>
+                  Reset
+                </button>
+              </div>
+              <button onClick={() => exportEmails()} className=' bg-green-600 rounded-md hover:bg-green-700 duration-200  py-1.5 ms-4 px-3 text-white'>
+                Export Emails
+              </button>
+            </div>
             <table class="table table-striped table-hover mb-0">
               <thead>
                 <tr>
