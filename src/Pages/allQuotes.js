@@ -269,7 +269,6 @@ const AllQuotes = () => {
               <View style={styles.rightContainer}>
                 <Text style={styles.text}>Total Pay: {pdfData?.invoice?.[0]?.total_pay} </Text>
               </View>
-
             </View>
           </View>
         </Page>

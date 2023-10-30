@@ -43,17 +43,28 @@ const CreateQuote = () => {
   const navigate = useNavigate();
   const quote = (e) => {
     e.preventDefault()
+
+    let formDataa = new FormData();
+    formDataa.append("patchName", formData?.patchName);
+    formDataa.append("quantity", formData?.quantity);
+    formDataa.append("embroidery", formData?.embroidery);
+    formDataa.append("patchH", formData?.patchH);
+    formDataa.append("patchW", formData?.patchW);
+    formDataa.append("patchS", formData?.patchS);
+    formDataa.append("backingT", formData?.backingT);
+    formDataa.append("borderT", formData?.borderT);
+    formDataa.append("msg", formData?.msg);
+    formDataa.append("img", formData?.img);
+    console.log("formDataa", formDataa);
     axios({
       method: 'POST',
-
       url: `http://34.230.138.15:9090/v1/customer/quote`,
       headers: {
-        // 'Content-Type': 'multipart/form-data',
+        'Content-Type': 'multipart/form-data',
         Authorization: `Bearer ${token}`
       },
-      data: {
-        ...formData,
-      },
+      data: formDataa,
+      
     }).then(res => {
       console.log("res", res);
       if (res?.data?.success) {
