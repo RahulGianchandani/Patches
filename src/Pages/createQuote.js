@@ -58,7 +58,7 @@ const CreateQuote = () => {
     console.log("formDataa", formDataa);
     axios({
       method: 'POST',
-      url: `http://34.230.138.15:9090/v1/customer/quote`,
+      url: `https://backend.royalpatchescustomize.com/v1/customer/quote`,
       headers: {
         'Content-Type': 'multipart/form-data',
         Authorization: `Bearer ${token}`

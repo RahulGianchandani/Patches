@@ -33,7 +33,7 @@ const Register = () => {
 
   const register = (e) => {
     e.preventDefault()
-    axios.post('http://34.230.138.15:9090/v1/signup/reg', { ...formData })
+    axios.post('https://backend.royalpatchescustomize.com/v1/signup/reg', { ...formData })
       .then(res => {
         console.log("res", res);
         if (res?.data?.success) {

@@ -17,7 +17,7 @@ const MyProfile = () => {
   useEffect(() => {
     axios({
       method: 'POST',
-      url: `http://34.230.138.15:9090/v1/customer/myprofile`,
+      url: `https://backend.royalpatchescustomize.com/v1/customer/myprofile`,
       headers: { Authorization: `Bearer ${token}` },
     }).then(res => {
       setData(res?.data?.message)

@@ -32,7 +32,7 @@ const AllQuotes = () => {
   const getAllQuotes = (userName) => {
     axios({
       method: 'POST',
-      url: `http://34.230.138.15:9090/v1/${role === "customer" ? "customer/getallusersquotes" : "admin/getallquotes"}`,
+      url: `https://backend.royalpatchescustomize.com/v1/${role === "customer" ? "customer/getallusersquotes" : "admin/getallquotes"}`,
       headers: { Authorization: `Bearer ${token}` },
       data: {
         userName
@@ -51,7 +51,7 @@ const AllQuotes = () => {
   const sendQuote = (_id) => {
     axios({
       method: 'POST',
-      url: `http://34.230.138.15:9090/v1/${role === "customer" ? "customer/getallusersquotes" : "admin/updatedprice"}`,
+      url: `https://backend.royalpatchescustomize.com/v1/${role === "customer" ? "customer/getallusersquotes" : "admin/updatedprice"}`,
       headers: { Authorization: `Bearer ${token}` },
       data: {
         _id: id,
@@ -83,7 +83,7 @@ const AllQuotes = () => {
   const quoteAction = (id) => {
     axios({
       method: 'POST',
-      url: `http://34.230.138.15:9090/v1/customer/accepted`,
+      url: `https://backend.royalpatchescustomize.com/v1/customer/accepted`,
       headers: { Authorization: `Bearer ${token}` },
       data: {
         _id: id,
@@ -112,7 +112,7 @@ const AllQuotes = () => {
   const createInvoice = () => {
     axios({
       method: 'POST',
-      url: `http://34.230.138.15:9090/v1/customer/createinvoice`,
+      url: `https://backend.royalpatchescustomize.com/v1/customer/createinvoice`,
       headers: { Authorization: `Bearer ${token}` },
     }).then(res => {
       console.log("res", res);

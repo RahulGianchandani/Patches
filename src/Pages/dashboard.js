@@ -21,7 +21,7 @@ const Dashboard = () => {
   const getCompleteOrders = () => {
     axios({
       method: 'POST',
-      url: `http://34.230.138.15:9090/v1/${role === "customer" ? "customer/completeOrder" : "admin/completeOrder"}`,
+      url: `https://backend.royalpatchescustomize.com/v1/${role === "customer" ? "customer/completeOrder" : "admin/completeOrder"}`,
       headers: {
         Authorization: `Bearer ${token}`
       },
@@ -38,7 +38,7 @@ const Dashboard = () => {
   const getCountQuotes = () => {
     axios({
       method: 'POST',
-      url: `http://34.230.138.15:9090/v1/${role === "customer" ? "customer/countQuotes" : "admin/countQuotes"}`,
+      url: `https://backend.royalpatchescustomize.com/v1/${role === "customer" ? "customer/countQuotes" : "admin/countQuotes"}`,
       headers: {
         Authorization: `Bearer ${token}`
       },
@@ -55,7 +55,7 @@ const Dashboard = () => {
   const getTotalOrders = () => {
     axios({
       method: 'POST',
-      url: `http://34.230.138.15:9090/v1/${role === "customer" ? "customer/totalOrder" : "admin/totalOrder"}`,
+      url: `https://backend.royalpatchescustomize.com/v1/${role === "customer" ? "customer/totalOrder" : "admin/totalOrder"}`,
       headers: {
         Authorization: `Bearer ${token}`
       },

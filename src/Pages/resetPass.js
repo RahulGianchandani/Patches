@@ -20,7 +20,7 @@ const ResetPass = () => {
   };
   const resetPass = (e) => {
     e.preventDefault()
-    axios.post('http://34.230.138.15:9090/v1/signin/login', { ...formData })
+    axios.post('https://backend.royalpatchescustomize.com/v1/signin/login', { ...formData })
       .then(res => {
         console.log("res", res);
         if (res?.data?.success) {

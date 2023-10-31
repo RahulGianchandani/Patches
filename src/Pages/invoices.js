@@ -28,7 +28,7 @@ const Invoices = () => {
   const getPaidUsers = (invoice_no) => {
     axios({
       method: 'POST',
-      url: `http://34.230.138.15:9090/v1/${role === "customer" ? "customer/paidUser" : "admin/paidUser"}`,
+      url: `https://backend.royalpatchescustomize.com/v1/${role === "customer" ? "customer/paidUser" : "admin/paidUser"}`,
       headers: { Authorization: `Bearer ${token}` },
       data: {
         invoice_no,
@@ -43,7 +43,7 @@ const Invoices = () => {
   const getUnPaidUsers = (invoice_no) => {
     axios({
       method: 'POST',
-      url: `http://34.230.138.15:9090/v1/${role === "customer" ? "customer/unpaidUser" : "admin/unpaidUser"}`,
+      url: `https://backend.royalpatchescustomize.com/v1/${role === "customer" ? "customer/unpaidUser" : "admin/unpaidUser"}`,
       headers: { Authorization: `Bearer ${token}` },
       data: {
         invoice_no,

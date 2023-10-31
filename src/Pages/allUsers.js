@@ -23,7 +23,7 @@ const AllUsers = () => {
   const getAllUsers = (email) => {
     axios({
       method: 'POST',
-      url: `http://34.230.138.15:9090/v1/admin/getalluser`,
+      url: `https://backend.royalpatchescustomize.com/v1/admin/getalluser`,
       headers: { Authorization: `Bearer ${token}` },
       data: {
         email
@@ -40,7 +40,7 @@ const AllUsers = () => {
   const deActivateUser = (_id) => {
     axios({
       method: 'POST',
-      url: `http://34.230.138.15:9090/v1/${role === "customer" ? "customer/getallusersquotes" : "admin/deactiveUser"}`,
+      url: `https://backend.royalpatchescustomize.com/v1/${role === "customer" ? "customer/getallusersquotes" : "admin/deactiveUser"}`,
       headers: { Authorization: `Bearer ${token}` },
       data: {
         _id: _id,
@@ -67,7 +67,7 @@ const AllUsers = () => {
   const exportEmails = () => {
     axios({
       method: 'POST',
-      url: `http://34.230.138.15:9090/v1/${role === "customer" ? "customer/getallusersquotes" : "admin/export"}`,
+      url: `https://backend.royalpatchescustomize.com/v1/${role === "customer" ? "customer/getallusersquotes" : "admin/export"}`,
       headers: { Authorization: `Bearer ${token}` },
     }).then(res => {
       console.log("res", res);

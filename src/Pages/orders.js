@@ -28,7 +28,7 @@ const Orders = () => {
   const getAllQuotes = (userName) => {
     axios({
       method: 'POST',
-      url: `http://34.230.138.15:9090/v1/${role === "customer" ? "customer/getallusersquotes" : "admin/getallquotes"}`,
+      url: `https://backend.royalpatchescustomize.com/v1/${role === "customer" ? "customer/getallusersquotes" : "admin/getallquotes"}`,
       headers: { Authorization: `Bearer ${token}` },
       data: {
         userName
@@ -46,7 +46,7 @@ const Orders = () => {
   const sendQuote = (_id) => {
     axios({
       method: 'POST',
-      url: `http://34.230.138.15:9090/v1/${role === "customer" ? "customer/getallusersquotes" : "admin/sendtocustomer"}`,
+      url: `https://backend.royalpatchescustomize.com/v1/${role === "customer" ? "customer/getallusersquotes" : "admin/sendtocustomer"}`,
       headers: { Authorization: `Bearer ${token}` },
       data: {
         _id: id,
