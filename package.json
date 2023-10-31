@@ -1,7 +1,6 @@
 {
   "name": "perfect-smile",
   "version": "0.1.0",
-  "homepage": "https://rahulgianchandani.github.io/Patches",
   "private": false,
   "dependencies": {
     "@react-pdf/renderer": "^3.1.14",
@@ -28,8 +27,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "predeploy": "npm run build"
   },
   "eslintConfig": {
     "extends": [
