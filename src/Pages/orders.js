@@ -43,15 +43,16 @@ const Orders = () => {
   }
 
 
-  const sendQuote = (_id) => {
+  const sendQuote = () => {
+    let formData = new FormData();
+    formData.append("_id", id);
+    formData.append("img", img);
+
     axios({
       method: 'POST',
       url: `https://backend.royalpatchescustomize.com/v1/${role === "customer" ? "customer/getallusersquotes" : "admin/sendtocustomer"}`,
       headers: { Authorization: `Bearer ${token}` },
-      data: {
-        _id: id,
-        imgC: "asdsada"
-      }
+      data: formData
     }).then(res => {
       setData(res?.data?.message)
       console.log("res", res);
@@ -134,7 +135,7 @@ const Orders = () => {
                           <td>{order?.patchW}</td>
                           <td>{order?.backingT}</td>
                           <td>{order?.borderT}</td>
-                          <td>{order?.img}</td>
+                          <td> <img className='cursor-pointer' src={order?.img} height={"30px"} width={"40px"} /></td>
                           <td className='text-center'>{order?.imgC ? order?.imgC : "-"}</td>
                           <td>{order?.msg}</td>
                           <td>{order?.discount}</td>

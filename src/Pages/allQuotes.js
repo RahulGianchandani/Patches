@@ -9,6 +9,7 @@ import Wrapper from '../Components/Wrapper';
 import logo from '../images/logo-2.png'
 import { Page, Text, View, Document, StyleSheet, PDFDownloadLink, Image } from "@react-pdf/renderer";
 import moment from 'moment';
+import { saveAs } from 'file-saver'
 const token = localStorage.getItem("token");
 const role = localStorage.getItem("role");
 
@@ -108,7 +109,14 @@ const AllQuotes = () => {
     })
 
   }
-
+  const downloadImage = (imgURL) => {
+    saveAs(imgURL, 'image.jpg') // Put your image URL here.
+    // (async () => {
+    //   let name = 'img' + 0 + '.jpg';
+    //   let blob = await fetch(imgURL[0]).then((r) => r.blob());
+    //   saveAs(blob, name);
+    // })();
+  }
   const createInvoice = () => {
     axios({
       method: 'POST',
@@ -336,7 +344,9 @@ const AllQuotes = () => {
                           <td>{order?.patchW}</td>
                           <td>{order?.backingT}</td>
                           <td>{order?.borderT}</td>
-                          <td>{order?.img}</td>
+                          <td>
+                            <img className='cursor-pointer' src={order?.img} onClick={() => downloadImage(order?.img)} height={"30px"} width={"40px"} />
+                          </td>
                           <td>{order?.msg}</td>
                           <td>{order?.discount}</td>
                           <td>{order?.Price}</td>

@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
-
+import { saveAs } from 'file-saver'
 
 import { Link, useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify';
@@ -75,6 +75,9 @@ const CompleteOrders = () => {
     })
 
   }
+  const downloadImage = (imgURL) => {
+    saveAs(imgURL, 'image.jpg') // Put your image URL here.
+  }
   const pay = (_id) => {
     axios({
       method: 'POST',
@@ -114,19 +117,19 @@ const CompleteOrders = () => {
           <h2 className='h2 font-bold py-3 px-5 '>Complete Orders</h2>
           <div className='container'>
             <div className='flex items-center place-items-center mb-5 '>
-         
-                <div className="">
-                  <input type="text" value={userName} onChange={(e) => setUserName(e.target.value)} className="form-control w-44" id="userName" aria-describedby="nameHelp" placeholder='Enter User Name' />
-                </div>
-                <button className=' bg-sky-600 rounded-md py-2 ms-4 px-3 text-white' onClick={() => getAllQuotes(userName)}>
-                  Search
-                </button>
-                <button className='bg-gray-500 rounded-md py-2 ms-2 px-3 text-white' onClick={() => { setUserName(""); getAllQuotes("") }}>
-                  Reset
-                </button>
+
+              <div className="">
+                <input type="text" value={userName} onChange={(e) => setUserName(e.target.value)} className="form-control w-44" id="userName" aria-describedby="nameHelp" placeholder='Enter User Name' />
               </div>
-            
-         
+              <button className=' bg-sky-600 rounded-md py-2 ms-4 px-3 text-white' onClick={() => getAllQuotes(userName)}>
+                Search
+              </button>
+              <button className='bg-gray-500 rounded-md py-2 ms-2 px-3 text-white' onClick={() => { setUserName(""); getAllQuotes("") }}>
+                Reset
+              </button>
+            </div>
+
+
             <table className="table table-striped table-hover mb-0">
               <thead>
                 <tr>
@@ -163,8 +166,8 @@ const CompleteOrders = () => {
                           <td>{order?.patchW}</td>
                           <td>{order?.backingT}</td>
                           <td>{order?.borderT}</td>
-                          <td>{order?.img}</td>
-                          <td className='text-center'>{order?.imgC ? order?.imgC : "-"}</td>
+                          <td> <img className='cursor-pointer' src={order?.img} height={"30px"} width={"40px"} /></td>
+                          <td className='flex justify-center'><img className='cursor-pointer' src={order?.img2} onClick={() => downloadImage(order?.img2)} height={"50px"} width={"50px"} /></td>
                           <td>{order?.msg}</td>
                           <td>{order?.discount}</td>
                           <td>{order?.Price}</td>
